@@ -53,6 +53,13 @@ label.pack(pady=10)
 button = ttk.Button(text="Загрузить изображение", command=prog)
 button.pack(pady=10)
 
+clear_button = ttk.Button(text="Очистить вкладки", command=lambda: [[notebook.forget(tab) for tab in notebook.tabs()]])
+clear_button.pack(pady=10)
+
+progress = ttk.Progressbar(mode="determinate", length=300)
+progress.pack(pady=10)
+
+
 progress = ttk.Progressbar(mode="determinate", length=300)
 progress.pack(pady=10)
 
@@ -74,6 +81,5 @@ top_level_window.title("Изображения собачек")
 notebook = ttk.Notebook(top_level_window)
 notebook.pack(expand=True, fill="both", padx=10, pady=10)
 
+
 window.mainloop()
-
-
