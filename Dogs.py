@@ -21,15 +21,13 @@ def show_image():
     image_url = get_dog_image()
     if image_url:
         try:
-            responce = requests.get(image_url, stream=True)
+            response = requests.get(image_url, stream=True)
             response.raise_for_status()
             img_data = BytesIO(response.content)
             img = Image.open(img_data)
             img_size = (int(width_spinbox.get()), int(height_spinbox.get()))
             img.thumbnail(img_size)
             img = ImageTk.PhotoImage(img)
-            #new_window = Toplevel(window)
-            #new_window.title("случайное изображение")
             tab = ttk.Frame(notebook)
             notebook.add(tab, text=f"Картинка №{notebook.index('end')+1}")
             lb = ttk.Label(tab, image=img)
